@@ -57,7 +57,11 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        //
+        $single_movie = Movie::find($id);
+        if($single_movie){
+            return view('movie.show', compact('single_movie'));
+        }
+        abort(404);
     }
 
     /**
