@@ -8,7 +8,7 @@
            
         </div>
         <div class="my-2">
-        <a href="{{ route('comics.index')}}" class="btn btn-primary"> torna all'elenco</a>
+        <a href="{{ route('movie.index')}}" class="btn btn-primary"> torna all'elenco</a>
         
             
         </div>
@@ -19,7 +19,7 @@
 <div class="container p-2">
 
 
-<form action="{{ route('movies.store')}}" method="POST">
+<form action="{{ route('movie.store')}}" method="POST">
     @csrf
     <div class="form-group">
         <label class="control-label">Titolo</label>
