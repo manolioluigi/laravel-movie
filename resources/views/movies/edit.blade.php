@@ -19,7 +19,7 @@
 <div class="container p-2">
 
 
-    <form action="{{ route('movie.update', $comic->id)}}" method="POST">
+    <form action="{{ route('movie.update', $movie->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
