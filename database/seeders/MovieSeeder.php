@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Movie;
 
 class MovieSeeder extends Seeder
 {
@@ -24,7 +25,7 @@ class MovieSeeder extends Seeder
             $newMovie->release_date = $movie['release_date'];
             $newMovie->vote = $movie['vote'];
             $newMovie->cast = $movie['cast'];
-            $newMovie->type = $movie['cover_path'];
+            $newMovie->cover_path = $movie['cover_path'];
 
             $newMovie->save();
         }
