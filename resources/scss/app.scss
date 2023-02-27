@@ -1,4 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '~resources/scss/partials/_mixins.scss';
+@import '~resources/scss/partials/_variables.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
 header {
     li {
@@ -12,4 +22,87 @@ header {
 
 .locandina {
     width: 100px;
+}
+
+.small-blue-tag {
+    background-color: $lightblue;
+    color: $white;
+    width: 150px;
+    font-size: 13px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.half-blue-tag {
+    background-color: $lightblue;
+    color: $white;
+    width: 80px;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+}
+
+.comic-thumb {
+    max-width: fit-content;
+    position: absolute;
+    top: 33%;
+    left: 15%;
+    border: 1px solid $white;
+
+    img {
+        width: 150px;
+    }
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.relative {
+    position: relative;
+}
+
+.blue-bar {
+    background-color: $blue;
+    width: 100%;
+    height: 50px;
+}
+
+.bg-white {
+    background-color: $white;
+}
+
+.width-75 {
+    width: 75%;
+}
+
+.darkblue {
+    color: $darkblue;
+}
+
+.green-bar {
+    background-color: $green;
+    height: 50px;
+    width: 100%;
+    color: rgb(192, 248, 147);
+}
+
+.vertical-line {
+    height: 100%;
+    width: 1px;
+    background-color: rgb(66, 15, 15);
+}
+
+.white {
+    color: $white;
+}
+
+.darkgray {
+    color: $darkgray;
 }
