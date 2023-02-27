@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12 no-padding relative">
                     <div class="comic-thumb d-flex flex-row align-items-center">
-                        <img src="{{$single_movie['cover_path']}}" alt="{{$comic_book['title']}}">
+                        <img src="{{$single_movie['cover_path']}}" alt="{{$single_movie['title']}}">
                         <div class="half-blue-tag">MOVIE</div>
                         <div class="small-blue-tag">VIEW GALLERY</div>
                     </div>
