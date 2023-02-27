@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Movie;
 
 class MovieController extends Controller
@@ -39,7 +40,13 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newMovie = new Movie();
+
+        $newMovie->fill($this->validation($request->all()));
+
+        $newMovie->save();
+
+        return redirect()->route('movie.index', $newMovie->id);
     }
 
     /**
@@ -85,5 +92,31 @@ class MovieController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function validation($data){
+        $validation = Validator::make($data, [
+            'title' => 'required|max:60',
+            'original_title' => 'required|max:100',
+            'nationality' => 'required|max:100',
+            'release_date' => 'required|max:30',
+            'vote' => 'nullable',
+            'cast' => 'required|max:300',
+            'cover_path' => 'nullable',
+        ],
+        [
+            'title.required' => 'Titolo obbligatorio',
+            'title.max' =>'Numero massimo di caratteri :max',
+            'original_title.required' => 'Titolo originale obbligatorio',
+            'original_title.max' =>'Numero massimo di caratteri :max',
+            'nationality.required' => 'Nazionalita obbligatoria',
+            'nationality.max' =>'Numero massimo di caratteri :max',
+            'release_date.required' => 'Data obbligatoria',
+            'release_date.max' =>'Numero massimo di caratteri :max',
+            'cast.required' => 'Cast obbligatorio',
+            'cast.max' => 'Numero massimo di caratteri :max',
+        ])->validate();
+
+        return $validation;
     }
 }
