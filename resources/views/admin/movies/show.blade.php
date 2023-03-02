@@ -12,29 +12,30 @@
                         <a href="{{route('admin.movie.index')}}" class="btn btn-sm btn-primary">Torna all'elenco</a>
                     </div>
                 </div>
-                <img src="{{$single_movie->cover_path}}" class="w-25" alt="">
+                <img src="{{$single_movie->cover_path}}" class="cover-img img img-fluid" alt="">
             </div>
             <div class="col-12">
-                <p>
-                  <strong>Original Title:</strong>  
-                  {{$single_movie->original_title}}
-                </p>
-                <p>
-                    <strong>Nationality:</strong>  
-                    {{$single_movie->nationality}}
-                </p>
-                <p>
-                    <strong>Vote</strong>  
-                    {{$single_movie->vote}}
-                </p>
-                <p>
-                    <strong>Release date:</strong>  
-                    {{$single_movie->release_date}}
-                </p>
-                <label class="d-block">
-                    <strong>Cast:</strong>
-                </label>
-                <p>{{$single_movie->cast}}</p>
+
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col"><strong>Original Title:</strong>  </th>
+                        <th scope="col"><strong>Nationality:</strong></th>
+                        <th scope="col"><strong>Vote</strong></th>
+                        <th scope="col"><strong>Release date:</strong> </th>
+                        <th scope="col"><strong>Cast:</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{$single_movie->original_title}}</th>
+                        <td>{{$single_movie->nationality}}</td>
+                        <td>{{$single_movie->vote}}</td>
+                        <td>{{$single_movie->release_date}}</td>
+                        <td><p>{{$single_movie->cast}}</p></td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>
