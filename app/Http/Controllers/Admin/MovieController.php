@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Movie;
+use App\Http\Controllers\Controller;
 
 class MovieController extends Controller
 {
@@ -92,7 +93,7 @@ class MovieController extends Controller
 
         $movie->update($data);
 
-        return redirect()->route('movies.index', $movie->id);
+        return redirect()->route('movie.index', ['movie' => $movie->id]);
     }
 
     /**
@@ -117,7 +118,7 @@ class MovieController extends Controller
             'nationality' => 'required|max:100',
             'release_date' => 'required|max:30',
             'vote' => 'nullable',
-            'cast' => 'required|max:300',
+            'cast' => 'max:300',
             'cover_path' => 'nullable',
         ],
         [
@@ -129,7 +130,6 @@ class MovieController extends Controller
             'nationality.max' =>'Numero massimo di caratteri :max',
             'release_date.required' => 'Data obbligatoria',
             'release_date.max' =>'Numero massimo di caratteri :max',
-            'cast.required' => 'Cast obbligatorio',
             'cast.max' => 'Numero massimo di caratteri :max',
         ])->validate();
 
