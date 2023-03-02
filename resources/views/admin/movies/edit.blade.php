@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 <div class="container">
@@ -9,7 +9,7 @@
             </div>
 
             <div class="my-2">
-                <a href="{{ route('movie.index')}}" class="btn btn-primary"> torna all'elenco</a>
+                <a href="{{ route('admin.movie.index')}}" class="btn btn-primary"> torna all'elenco</a>
             </div>
             
         </div>
@@ -19,7 +19,7 @@
 <div class="container p-2">
 
 
-    <form action="{{ route('movie.update', $movie->id)}}" method="POST">
+    <form action="{{ route('admin.movie.update', $movie->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">

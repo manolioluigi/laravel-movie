@@ -19,7 +19,7 @@ class MovieController extends Controller
         
         $movies = Movie::all();
 
-        return view('movies.index', compact('movies'));
+        return view('admin.movies.index', compact('movies'));
 
     }
 
@@ -30,7 +30,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('movies.create');
+        return view('admin.movies.create');
     }
 
     /**
@@ -47,7 +47,7 @@ class MovieController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('movie.index', $newMovie->id);
+        return redirect()->route('admin.movie.index', $newMovie->id);
     }
 
     /**
@@ -60,7 +60,7 @@ class MovieController extends Controller
     {
         $single_movie = Movie::find($id);
         if($single_movie){
-            return view('movie.show', compact('single_movie'));
+            return view('admin.movies.show', compact('single_movie'));
         }
         abort(404);
     }
@@ -75,7 +75,7 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
 
-        return view('movies.edit', compact('movie'));
+        return view('admin.movies.edit', compact('movie'));
     }
 
     /**
@@ -93,7 +93,7 @@ class MovieController extends Controller
 
         $movie->update($data);
 
-        return redirect()->route('movie.index', ['movie' => $movie->id]);
+        return redirect()->route('admin.movie.index', ['movie' => $movie->id]);
     }
 
     /**
@@ -108,7 +108,7 @@ class MovieController extends Controller
 
         $movie->delete();
 
-        return redirect()->route('movie.index');
+        return redirect()->route('admin.movie.index');
     }
 
     public function validation($data){

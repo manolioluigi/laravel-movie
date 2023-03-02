@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
     <div class="p-5 mb-4 text-center">
@@ -10,7 +10,7 @@
             <div class="col-12 py-3">
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>Tutti i fumetti</h2>
-                    <a href="{{route('movie.create')}}" class="btn btn-primary">Aggiungi un nuovo film</a>
+                    <a href="{{route('admin.movie.create')}}" class="btn btn-primary">Aggiungi un nuovo film</a>
                 </div>
             </div>
             <table class="table">
@@ -37,13 +37,13 @@
                             <td>{{$movie['vote']}}</td>
                             <td>{{$movie['cast']}}</td>
                             <td class="d-flex">
-                                <a href="{{route('movie.show', ['movie' => $movie['id']])}}" class="btn btn-info btn-sm btn-square" title="Dettaglio film">
+                                <a href="{{route('admin.movie.show', ['movie' => $movie['id']])}}" class="btn btn-info btn-sm btn-square" title="Dettaglio film">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{route('movie.edit', ['movie' => $movie['id']])}}" class="btn btn-warning btn-sm btn-square" title="Modifica film">
+                                <a href="{{route('admin.movie.edit', ['movie' => $movie['id']])}}" class="btn btn-warning btn-sm btn-square" title="Modifica film">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('movie.destroy', ['movie' => $movie['id']])}}" class="d-inline-block" method="POST">
+                                <form action="{{ route('admin.movie.destroy', ['movie' => $movie['id']])}}" class="d-inline-block" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-square btn-danger" type="submit">
