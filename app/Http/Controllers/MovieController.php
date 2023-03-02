@@ -86,7 +86,13 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+
+        $data = $this->validation($request->all());
+
+        $movie->update($data);
+
+        return redirect()->route('movies.index', $movie->id);
     }
 
     /**
