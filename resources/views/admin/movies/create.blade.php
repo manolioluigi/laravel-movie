@@ -56,7 +56,7 @@
         placeholder="inserisci immagine">
     </div>
 
-    <div class="form-group">
+    <div  class="form-group">
         <label class="control-label">data</label>
         <input type="date" name="release_date" class="form-control"
         placeholder="inserisci data">
