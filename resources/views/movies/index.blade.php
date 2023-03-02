@@ -43,7 +43,7 @@
                                 <a href="{{route('movie.edit', ['movie' => $movie['id']])}}" class="btn btn-warning btn-sm btn-square" title="Modifica film">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{route('movie.destroy', ['movie' => $movie['id']])}}" class="d-inline-block" method="POST">
+                                <form action="{{ route('movie.destroy', ['movie' => $movie['id']])}}" class="d-inline-block" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-square btn-danger" type="submit">
