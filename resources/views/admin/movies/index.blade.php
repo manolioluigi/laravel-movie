@@ -15,14 +15,14 @@
             </div>
             <table class="table">
                 <thead>
-                    <th>ID</th>
-                    <th>Immagine</th>
-                    <th>Titolo</th>
-                    <th>Titolo Originale</th>
-                    <th>Nazionalità</th>
-                    <th>Data di uscita</th>
-                    <th>Voto</th>
-                    <th>Cast</th>
+                    <th><strong>ID</strong></th>
+                    <th><strong>Immagine</strong></th>
+                    <th><strong>Titolo</strong></th>
+                    <th><strong>Titolo Originale</strong></th>
+                    <th><strong>Nazionalità</strong></th>
+                    <th><strong>Data di uscita</strong></th>
+                    <th><strong>Voto</strong></th>
+                    <th><strong>Cast</strong></th>
                     <th class="text-center">Azioni</th>
                 </thead>
                 <tbody>
@@ -37,13 +37,13 @@
                             <td>{{$movie['vote']}}</td>
                             <td>{{$movie['cast']}}</td>
                             <td class="d-flex">
-                                <a href="{{route('admin.movie.show', ['movie' => $movie['id']])}}" class="btn btn-info btn-sm btn-square" title="Dettaglio film">
+                                <a href="{{route('admin.movie.show', ['movie' => $movie['id']])}}" class="btn btn-info btn-sm btn-square my-1" title="Dettaglio film">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{route('admin.movie.edit', ['movie' => $movie['id']])}}" class="btn btn-warning btn-sm btn-square" title="Modifica film">
+                                <a href="{{route('admin.movie.edit', ['movie' => $movie['id']])}}" class="btn btn-warning btn-sm btn-square mx-2 my-1" title="Modifica film">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('admin.movie.destroy', ['movie' => $movie['id']])}}" class="d-inline-block" method="POST">
+                                <form action="{{ route('admin.movie.destroy', ['movie' => $movie['id']])}}" class="d-inline-block my-1" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-square btn-danger" type="submit">
