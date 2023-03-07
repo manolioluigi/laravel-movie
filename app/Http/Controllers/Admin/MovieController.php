@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Movie;
+use App\Models\Genre;
 use App\Http\Controllers\Controller;
 
 class MovieController extends Controller
@@ -30,7 +31,8 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('admin.movies.create');
+        $genres = Genre::all();
+        return view('admin.movies.create', compact('genres'));
     }
 
     /**
