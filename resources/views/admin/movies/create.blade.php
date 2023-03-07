@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-12 d-flex justify-content-between">
         <div>
-            <h1>iserisci nuovo film</h1>
+            <h1>Inserisci nuovo film</h1>
            
         </div>
         <div class="my-2">
@@ -67,13 +67,13 @@
         <select name="genre_id" id="genre_id" class="form-control">
             <option value="">Seleziona il tipo</option>
             @foreach ($genres as $genre)
-                <option value="{{$genre->id}}">{{$genre->name}}</option>
+                <option value="{{$genre->slug}}">{{$genre->genre}}</option>
             @endforeach
         </select>
     </div>
 
-    <div class="form-group">
-        <button type="submit" class="form-control btn btn-primary w-50">salva</button>
+    <div class="form-group my-3">
+        <button type="submit" class="form-control btn btn-primary">salva</button>
     </div>
 </form>
 </div>
