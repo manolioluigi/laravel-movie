@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Movie;
 use App\Models\Genre;
+use App\Models\Actor;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
@@ -33,7 +34,8 @@ class MovieController extends Controller
     public function create()
     {
         $genres = Genre::all();
-        return view('admin.movies.create', compact('genres'));
+        $actors = Actor::all();
+        return view('admin.movies.create', compact('genres', 'actor'));
     }
 
     /**
@@ -122,7 +124,8 @@ class MovieController extends Controller
             'release_date' => 'required|max:30',
             'vote' => 'nullable',
             'cover_path' => 'nullable',
-            'genre_id' => 'exists:genres,id'
+            'genre_id' => 'exists:genres,id',
+            'actor_id' => 'exists:actors,id'
         ],
         [
             'title.required' => 'Titolo obbligatorio',
@@ -133,7 +136,8 @@ class MovieController extends Controller
             'nationality.max' =>'Numero massimo di caratteri :max',
             'release_date.required' => 'Data obbligatoria',
             'release_date.max' =>'Numero massimo di caratteri :max',
-            'genre_id.exists' => 'Il genere non esiste'
+            'genre_id.exists' => 'Il genere non esiste',
+            'actor_id.exists' => "L'attore non eiste"
         ])->validate();
 
         return $validation;
