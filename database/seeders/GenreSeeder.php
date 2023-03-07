@@ -19,11 +19,11 @@ class GenreSeeder extends Seeder
         $genres = ['Fantasy', ' Science fiction', 'Horror', 'Drama', 'Comedy'];
 
         foreach($genres as $genre){
-            $newGnere = new Gnere();
-            $newGnere->gnere = $genre;
-            $newGnere->slug = generateSlug($genre);
+            $newGenre = new Genre();
+            $newGenre->genre = $genre;
+            $newGenre->slug = Genre::generateSlug($genre);
 
-            $newGnere->save();
+            $newGenre->save();
         }
     }
 }
