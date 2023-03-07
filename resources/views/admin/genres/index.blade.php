@@ -26,13 +26,13 @@
                             <th scope="row">{{ $genre->id }}</th>
                             <td>{{ $genre->genre }}</td>
                             <td>
-                                <a class="btn-sm btn btn-primary" href="{{route('admin.genres.show', $genre->genre)}}"><i class="fas fa-eye"></i></a>
+                                <a class="btn-sm btn btn-primary" href="{{route('admin.genres.show', $genre->slug)}}"><i class="fas fa-eye"></i></a>
                                 <a class="btn-sm btn btn-warning" href=""><i class="fas fa-edit"></i></a>
                                 <form class="d-inline" action="" method="POST">
                                     @csrf
                                     
                                     @method('DELETE')
-                                    <button type="submit" class="btn-sm btn btn-danger confirm-delete-button" data-title="{{ $genre->genre }}"><i class="fas fa-trash"></i></button>
+                                    <button type="submit" class="btn-sm btn btn-danger confirm-delete-button"><i class="fas fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>   
