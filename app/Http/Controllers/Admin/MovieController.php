@@ -106,7 +106,7 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        $movie = movie::findOrFail($id);
+        $movie = Movie::findOrFail($id);
 
         $movie->delete();
 
@@ -120,8 +120,8 @@ class MovieController extends Controller
             'nationality' => 'required|max:100',
             'release_date' => 'required|max:30',
             'vote' => 'nullable',
-            'cast' => 'max:300',
             'cover_path' => 'nullable',
+            'genre_id' => 'exists:genres,id'
         ],
         [
             'title.required' => 'Titolo obbligatorio',
@@ -132,7 +132,7 @@ class MovieController extends Controller
             'nationality.max' =>'Numero massimo di caratteri :max',
             'release_date.required' => 'Data obbligatoria',
             'release_date.max' =>'Numero massimo di caratteri :max',
-            'cast.max' => 'Numero massimo di caratteri :max',
+            'genre_id.exists' => 'Il genere non esiste'
         ])->validate();
 
         return $validation;
