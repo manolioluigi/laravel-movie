@@ -64,6 +64,11 @@
                                     <i class="fa-solid fa-book fa-lg fa-fw"></i> Genres
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.actors.index' ? 'bg-secondary' : '' }}" href="{{route('admin.actors.index') }}">
+                                    <i class="fa-solid fa-masks-theater"></i> Actors
+                                </a>
+                            </li>
                         </ul>
 
 
