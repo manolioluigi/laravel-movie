@@ -67,7 +67,7 @@
         <select name="genre_id" id="genre_id" class="form-control">
             <option value="">Seleziona il tipo</option>
             @foreach ($genres as $genre)
-                <option value="{{$genre->slug}}">{{$genre->genre}}</option>
+                <option value="{{$genre->id}}">{{$genre->genre}}</option>
             @endforeach
         </select>
     </div>

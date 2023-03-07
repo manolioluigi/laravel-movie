@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Movie;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class MovieController extends Controller

@@ -57,23 +57,17 @@
         </div>
 
         <div class="form-group my-3">
-                    <label class="control-label">
-                        Genere
-                    </label>
-                    <select name="genre_id" id="genre_id">
-                        @foreach($genres as $genre)
-                        <option value="{{$genre->id}}" {{ $genre->id == old('genre_id', $movie->genre_id) ? 'selected' : ''}}>{{$genre->genre}}</option>
-                        @endforeach
-                    </select>
+            <label class="control-label">
+                    Genere
+            </label>
+            <select name="genre_id" id="genre_id">
+                @foreach($genres as $genre)
+                <option value="{{$genre->id}}" {{ $genre->id == old('genre_id', $movie->genre_id) ? 'selected' : ''}}>{{$genre->genre}}</option>
+                @endforeach
+            </select>
                 
-                </div>
-        
-
-        <div class="form-group mb-3">
-            <label class="control-label">cast</label>
-            <textarea type="text" name="cast" class="form-control"
-            placeholder="inserisci descrizione" rows="10" value="old('cast') ?? $movie->cast"></textarea>
         </div>
+        
         <div class="form-group">
             <button type="submit" class="form-control btn btn-primary w-50">salva</button>
         </div>
