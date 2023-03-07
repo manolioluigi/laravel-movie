@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Actor;
 use App\Http\Requests\StoreActorRequest;
 use App\Http\Requests\UpdateActorRequest;
+use App\Http\Controllers\Controller;
 
 class ActorController extends Controller
 {
@@ -15,7 +16,8 @@ class ActorController extends Controller
      */
     public function index()
     {
-        //
+        $actors = Actor::all();
+        return view('admin.actors.index',compact('actors'));
     }
 
     /**
@@ -47,7 +49,7 @@ class ActorController extends Controller
      */
     public function show(Actor $actor)
     {
-        //
+        return view('admin.actors.show',compact('actor'));
     }
 
     /**
