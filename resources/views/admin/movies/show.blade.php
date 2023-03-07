@@ -23,6 +23,7 @@
                         <th scope="col"><strong>Nationality:</strong></th>
                         <th scope="col"><strong>Vote</strong></th>
                         <th scope="col"><strong>Release date:</strong> </th>
+                        <th scope="col"><strong>Genere:</strong></th>
                         <th scope="col"><strong>Cast:</strong></th>
                       </tr>
                     </thead>
@@ -32,6 +33,7 @@
                         <td>{{$single_movie->nationality}}</td>
                         <td>{{$single_movie->vote}}</td>
                         <td>{{$single_movie->release_date}}</td>
+                        <td><p>{{$single_movie->genre ? $single_movie->genre->genre : 'nessun genere selezionato'}}</p></td>
                         <td><p>{{$single_movie->cast}}</p></td>
                       </tr>
                     </tbody>

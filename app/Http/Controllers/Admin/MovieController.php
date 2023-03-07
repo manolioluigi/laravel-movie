@@ -110,7 +110,7 @@ class MovieController extends Controller
 
         $movie->delete();
 
-        return redirect()->route('admin.movie.index');
+        return redirect()->route('admin.movie.index')->with('message', 'film modificato correttamente');
     }
 
     public function validation($data){
