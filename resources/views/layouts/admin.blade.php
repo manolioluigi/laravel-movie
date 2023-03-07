@@ -59,7 +59,11 @@
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Movies
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.genres.index' ? 'bg-secondary' : '' }}" href="{{route('admin.genres.index') }}">
+                                    <i class="fa-solid fa-book fa-lg fa-fw"></i> Types
+                                </a>
+                            </li>
                         </ul>
 
 
