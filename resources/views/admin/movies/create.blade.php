@@ -61,13 +61,17 @@
         <input type="date" name="release_date" class="form-control"
         placeholder="inserisci data">
     </div>
-    
 
-    <div class="form-group mb-3">
-        <label class="control-label">cast</label>
-        <textarea type="text" name="cast" class="form-control"
-        placeholder="inserisci descrizione" rows="10"></textarea>
+    <div  class="form-group">
+        <label class="control-label">generi</label>
+        <select name="genre_id" id="genre_id" class="form-control">
+            <option value="">Seleziona il tipo</option>
+            @foreach ($genres as $genre)
+                <option value="{{$genre->id}}">{{$genre->name}}</option>
+            @endforeach
+        </select>
     </div>
+
     <div class="form-group">
         <button type="submit" class="form-control btn btn-primary w-50">salva</button>
     </div>
