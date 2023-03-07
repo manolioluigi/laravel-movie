@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MovieController as MovieController;
 use App\Http\Controllers\Admin\PagesController as PagesController;
+use App\Http\Controllers\Admin\GenreController as GenreController;
+use App\Http\Controllers\Admin\ActorController as ActorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,8 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function(){
     Route::get('/', [PagesController::class, 'index'])->name('dashboard');
     Route::resource('/movie', MovieController::class);
+    Route::resource('genres', GenreController::class)->parameters(['genres'=>'genre:slug']);
+    Route::resource('actors', ActorController::class)->parameters(['actors'=>'actor:slug']);
 });
 
 Route::middleware('auth')->group(function () {
