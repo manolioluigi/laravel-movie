@@ -67,6 +67,26 @@
             </select>
                 
         </div>
+
+        <div class="form-group my-3">
+                    <label class="control-label">
+                        Attori
+                    </label>
+                    @foreach ($actors as $actor)
+                    <div class="form-check @error('technologies') is-invalid @enderror">
+
+                    @if($errors->any())
+                    <input class="form-check-input" type="checkbox" value="{{$actor->id}}" name="actor[]" {{in_array($actor->id, old('actors', [])) ? 'checked' : ''}}>
+                    <label class="form-check-label">{{$actor->name}}</label>
+                    @else
+                    <input class="form-check-input" type="checkbox" value="{{$actor->id}}" name="actors[]" {{$movie->actors->contains($actor) ? 'checked' : ''}}>
+                    <label> {{$actor->name}}</label>
+                    
+                    @endif
+                    </div>
+
+                    @endforeach
+                </div>
         
         <div class="form-group">
             <button type="submit" class="form-control btn btn-primary w-50">salva</button>

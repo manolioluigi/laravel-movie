@@ -80,7 +80,8 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
         $genres = Genre::all();
-        return view('admin.movies.edit', compact('movie','genres'));
+        $actors = Actor::all();
+        return view('admin.movies.edit', compact('movie','genres','actors'));
     }
 
     /**
