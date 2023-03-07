@@ -74,12 +74,14 @@
 
     <div class="form-group my-3">
         <div class="control-label">Attori</div>
-        @foreach ($actors as $actor)
-            <div class="form-check @error('actors') is-invalid @enderror">
-                <input type="checkbox" value="{{$actor->id}}" name="actors[]" class="form-check-input">
-                <label class="form-check-label">{{$actor->name}}</label>
-            </div>
-        @endforeach
+        <div class="actors">
+            @foreach ($actors as $actor)
+                <div class="form-check @error('actors') is-invalid @enderror">
+                    <input type="checkbox" value="{{$actor->id}}" name="actors[]" class="form-check-input">
+                    <label class="form-check-label">{{$actor->name}}</label>
+                </div>
+            @endforeach
+        </div>
     </div>
 
     <div class="form-group my-3">

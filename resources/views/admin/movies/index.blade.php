@@ -22,7 +22,6 @@
                     <th><strong>Nazionalità</strong></th>
                     <th><strong>Data di uscita</strong></th>
                     <th><strong>Voto</strong></th>
-                    <th><strong>Cast</strong></th>
                     <th class="text-center">Azioni</th>
                 </thead>
                 <tbody>
@@ -35,7 +34,6 @@
                             <td>{{$movie['nationality']}}</td>
                             <td>{{$movie['release_date']}}</td>
                             <td>{{$movie['vote']}}</td>
-                            <td>{{$movie['cast']}}</td>
                             <td class="d-flex">
                                 <a href="{{route('admin.movie.show', ['movie' => $movie['id']])}}" class="btn btn-info btn-sm btn-square my-1" title="Dettaglio film">
                                     <i class="fas fa-eye"></i>

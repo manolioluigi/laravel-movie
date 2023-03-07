@@ -34,7 +34,13 @@
                         <td>{{$single_movie->vote}}</td>
                         <td>{{$single_movie->release_date}}</td>
                         <td><p>{{$single_movie->genre ? $single_movie->genre->genre : 'nessun genere selezionato'}}</p></td>
-                        <td><p>{{$single_movie->cast}}</p></td>
+                        <td><p>
+                          @forelse ($single_movie->actors as $actor)
+                            {{$actor->name}}<br>
+                          @empty
+                            Non ci sono attori
+                          @endforelse  
+                        </p></td>
                       </tr>
                     </tbody>
                   </table>

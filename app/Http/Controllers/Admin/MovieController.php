@@ -35,7 +35,7 @@ class MovieController extends Controller
     {
         $genres = Genre::all();
         $actors = Actor::all();
-        return view('admin.movies.create', compact('genres', 'actor'));
+        return view('admin.movies.create', compact('genres', 'actors'));
     }
 
     /**
@@ -51,6 +51,10 @@ class MovieController extends Controller
         $newMovie->fill($this->validation($request->all()));
 
         $newMovie->save();
+
+        if($request->has('actors')){
+            $newMovie->actors()->attach($request->actors);
+        }
 
         return redirect()->route('admin.movie.index', $newMovie->id);
     }
@@ -99,6 +103,10 @@ class MovieController extends Controller
 
         $movie->update($data);
 
+        if($request->has('actors')){
+            $movie->actors()->sync($request->actors);
+        }
+
         return redirect()->route('admin.movie.index', ['movie' => $movie->id]);
     }
 
@@ -110,6 +118,7 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
+
         $movie = Movie::findOrFail($id);
 
         $movie->delete();
