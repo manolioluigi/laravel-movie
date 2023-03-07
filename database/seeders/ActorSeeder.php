@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Actor;
 
 class ActorSeeder extends Seeder
 {
@@ -14,6 +15,15 @@ class ActorSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $actors = config('actors');
+
+        foreach($actors as $actor){
+            $newActor = new Actor();
+
+            $newActor->name = $actor;
+            $newActor->slug = Actor::generateSlug($actor);
+
+            $newActor->save();
+        }
     }
 }
