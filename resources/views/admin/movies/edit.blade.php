@@ -55,6 +55,18 @@
             <input type="date" name="release_date" class="form-control"
             placeholder="inserisci data" value="{{ old('release_date') ?? $movie->release_date}}">
         </div>
+
+        <div class="form-group my-3">
+                    <label class="control-label">
+                        Genere
+                    </label>
+                    <select name="genre_id" id="genre_id">
+                        @foreach($genres as $genre)
+                        <option value="{{$genre->id}}" {{ $genre->id == old('genre_id', $movie->genre_id) ? 'selected' : ''}}>{{$genre->genre}}</option>
+                        @endforeach
+                    </select>
+                
+                </div>
         
 
         <div class="form-group mb-3">
