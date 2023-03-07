@@ -13,7 +13,7 @@ class movie extends Model
 
     public static function generateSlug($title){
         return Str::slug($title, '-');
-    }
+    } 
 
     public function genre(){
         return $this->belongsTo(Genre::class);
